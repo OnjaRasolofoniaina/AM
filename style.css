@@ -146,32 +146,55 @@ body {
 /* ---------- Pages intérieures (papier beige) ---------- */
 .page--paper {
   background-color: var(--beige);
-  background-image:
-    url('../images/mik.jpg'),
-    repeating-linear-gradient(0deg, rgba(92,4,4,0.03) 0 2px, transparent 2px 4px);
-  background-size: cover, auto;
-  background-position: center, center;
-  background-blend-mode: multiply, normal;
+  background-image: url('../images/mik.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .paper-frame {
   position: relative;
-  width: min(88vw, 760px);
-  max-height: 84vh;
-  background: rgba(224, 211, 175, 0.86);
-  border: 2px solid rgba(92,4,4,0.25);
-  padding: clamp(1.6rem, 4vw, 3rem);
+  width: min(92vw, 980px);
+  max-height: 90vh;
+  padding: clamp(1.2rem, 3vw, 2.2rem) clamp(1.2rem, 4vw, 3rem);
   overflow-y: auto;
+}
+
+/* ruban déchiré, coin haut-gauche */
+.paper-frame::before {
+  content: "";
+  position: absolute;
+  top: -14px;
+  left: 28px;
+  width: 92px;
+  height: 46px;
+  background: var(--cover-brown);
+  clip-path: polygon(0% 0%, 100% 0%, 92% 55%, 100% 100%, 50% 78%, 0% 100%, 8% 55%);
+  z-index: 2;
+}
+
+/* rangée de motifs losange, bas de page */
+.paper-frame::after {
+  content: "◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆ ◇ ◆";
+  display: block;
+  margin-top: 1.6rem;
+  text-align: center;
+  letter-spacing: 4px;
+  font-size: 0.6rem;
+  color: var(--cover-brown);
+  opacity: 0.55;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .paper-frame--split {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.6rem;
+  gap: 2rem;
+  align-items: start;
 }
 @media (min-width: 720px) {
   .paper-frame--split {
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
 }
@@ -189,8 +212,11 @@ body {
 .text-block {
   font-family: var(--font-display);
   color: var(--ink);
-  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
-  line-height: 1.75;
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  line-height: 2.1;
+}
+.text-block p {
+  margin: 0 0 0.9em;
 }
 
 .placeholder-line {
@@ -205,13 +231,13 @@ body {
 .illustration {
   margin: 0;
   position: relative;
-  border: 3px solid var(--cover-brown);
-  background: #d8c9a0;
+  border: 1px solid rgba(92,4,4,0.35);
   aspect-ratio: 3 / 4;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
 }
 .illustration img {
   width: 100%;
