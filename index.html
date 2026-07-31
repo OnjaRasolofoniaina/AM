@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="mg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anjara Masoandro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jeju+Hallasan&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Indicateur de page (points), rempli en JS -->
+<nav class="page-dots" id="pageDots" aria-label="Pejy"></nav>
+
+<!-- Bouton son, apparait à partir de la page 3 -->
+<button class="sound-toggle" id="soundToggle" aria-pressed="false" hidden>
+  <span class="sound-icon" aria-hidden="true">🔈</span>
+  <span class="sound-label">Feo</span>
+</button>
+
+<main class="book" id="book">
+
+  <!-- ============ PAGE 1 — COUVERTURE ============ -->
+  <section class="page page--cover" data-page="1" aria-label="Fonony">
+    <div class="cover-border" aria-hidden="true"></div>
+    <div class="sun" aria-hidden="true">
+      <svg viewBox="0 0 200 200" class="sun-svg">
+        <circle cx="100" cy="100" r="46" class="sun-core"/>
+        <g class="sun-rays">
+          <line x1="100" y1="10" x2="100" y2="34"/>
+          <line x1="100" y1="166" x2="100" y2="190"/>
+          <line x1="10" y1="100" x2="34" y2="100"/>
+          <line x1="166" y1="100" x2="190" y2="100"/>
+          <line x1="34" y1="34" x2="50" y2="50"/>
+          <line x1="150" y1="150" x2="166" y2="166"/>
+          <line x1="166" y1="34" x2="150" y2="50"/>
+          <line x1="50" y1="150" x2="34" y2="166"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="cover-content">
+      <h1 class="cover-title">ANJARA<br>MASOANDRO</h1>
+      <p class="cover-date">Aogositra 2026</p>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Alefaso ambany</span>
+      <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 4v16m0 0l-6-6m6 6l6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2 — TENY FAMPIDIRANA ============ -->
+  <section class="page page--paper" data-page="2" aria-label="Teny fampidirana">
+    <div class="paper-frame">
+      <p class="eyebrow">Teny fampidirana</p>
+      <div class="text-block editable-slot">
+        <!--
+          🖊️ Apetaho eto ny lahatsoratry ny "Teny fampidirana".
+          (Colle ici le texte de l'introduction — celui de ton PDF.)
+        -->
+        <p class="placeholder-line">— apetaho eto ny lahatsoratry ny "Teny fampidirana" —</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 3 — TANTARA (avec illustration + son) ============ -->
+  <section class="page page--paper" data-page="3" aria-label="Tantara — pejy 1">
+    <div class="paper-frame paper-frame--split">
+      <figure class="illustration">
+        <img src="images/dev.jpg" alt="Sarin'ilay ankizy mifoha maraina" loading="lazy"
+             onerror="this.closest('figure').classList.add('illustration--missing')">
+        <span class="illustration-fallback" aria-hidden="true">Sary tsy hita<br><small>images/dev.jpg</small></span>
+      </figure>
+
+      <div class="text-block editable-slot">
+        <!--
+          🖊️ Apetaho eto ny tantara (pejy 1).
+        -->
+        <p class="placeholder-line">— apetaho eto ny tantara —</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 4 — MODÈLE POUR LA SUITE ============ -->
+  <section class="page page--paper" data-page="4" aria-label="Tantara — pejy 2">
+    <div class="paper-frame">
+      <div class="text-block editable-slot">
+        <!--
+          🖊️ Ampahafantaro: hazavao/ampio pejy vaovao amin'ny fanamboarana
+          ity <section class="page page--paper"> ity, ary ovay ny data-page.
+        -->
+        <p class="placeholder-line">— pejy manaraka —</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Conteneur YouTube caché : injecté en JS dès la page 3, en boucle -->
+<div id="audioHost" class="audio-host" aria-hidden="true"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
