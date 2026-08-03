@@ -166,7 +166,8 @@ body {
 
 .paper-frame--split {
   display: grid;
-  grid-template-columns: 140px 1fr;
+  /* illustration column = 48% of viewport width */
+  grid-template-columns: 48vw 1fr;
   /* first row stretches so illustration can be vertically centered, second row holds the below text */
   grid-template-rows: 1fr auto;
   grid-template-areas: "illustration text" "below below";
@@ -175,7 +176,7 @@ body {
 }
 @media (min-width: 720px) {
   .paper-frame--split {
-    grid-template-columns: 180px 1fr;
+    grid-template-columns: 48vw 1fr;
     gap: 1.2rem;
   }
 }
