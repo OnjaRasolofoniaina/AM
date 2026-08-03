@@ -242,6 +242,65 @@ body {
 .text-below {
   margin-top: 0.4rem;
 }
+
+/* MOBILE: ajustements précis pour version téléphone (portrait étroit) */
+@media (max-width: 420px) {
+  .book { scroll-snap-type: y mandatory; }
+
+  /* rendre chaque page plus étroite et centrer le papier */
+  .paper-frame {
+    width: min(92vw, 360px);
+    padding: 1rem 1rem;
+    min-height: 86vh;
+  }
+
+  /* couverture : réduire la plaque dorée */
+  .cover-plate {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
+
+  /* page d'intro : texte centré et un peu plus compact */
+  .page[data-page="2"] .text-block {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+
+  /* page image + texte : colonne image étroite + colonne texte très fine à droite */
+  .paper-frame--split {
+    grid-template-columns: 96px 1fr;
+    gap: 0.6rem;
+  }
+
+  .illustration {
+    border-width: 2px;
+  }
+
+  .illustration img {
+    max-height: 58vh; /* tall image like the sample */
+  }
+
+  .text-side {
+    font-size: 1.02rem;
+    line-height: 1.9;
+    text-align: right;
+    padding-right: 0.5rem;
+    white-space: normal;
+  }
+
+  .text-side p { margin-bottom: 0.8rem; }
+
+  .text-below {
+    font-size: 0.98rem;
+    line-height: 1.75;
+    margin-top: 0.6rem;
+  }
+
+  /* réduire espaces généraux */
+  .scroll-hint { bottom: 20px; }
+  .page-dots { right: 10px; }
+}
 .text-block { overflow: visible; }
 .illustration-fallback {
   display: none;
