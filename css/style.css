@@ -55,9 +55,8 @@ body {
 
 /* ---------- Page 1 : couverture ---------- */
 .page--cover {
-  background: var(--cover-yellow);
-  background-image:
-    radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.10), transparent 55%);
+  /* couverture sobre : fond beige comme le reste, petite plaque dorée pour le titre */
+  background: var(--beige);
 }
 
 .cover-border {
@@ -160,7 +159,7 @@ body {
   position: relative;
   width: min(88vw, 760px);
   max-height: 84vh;
-  background: rgba(224, 211, 175, 0.86);
+  background: rgba(224, 211, 175, 0.72);
   border: 2px solid rgba(92,4,4,0.25);
   padding: clamp(1.2rem, 3.4vw, 2.4rem);
   overflow-y: auto;
@@ -174,7 +173,9 @@ body {
 @media (min-width: 720px) {
   .paper-frame--split {
     grid-template-columns: 0.9fr 1.1fr;
-    align-items: center;
+    grid-template-rows: auto auto;
+    grid-template-areas: "illustration text" "text text";
+    align-items: start;
   }
 }
 
@@ -216,6 +217,8 @@ body {
   justify-content: center;
   overflow: hidden;
 }
+.paper-frame--split .illustration { grid-area: illustration; }
+.paper-frame--split .text-block { grid-area: text; }
 .illustration img {
   width: 100%;
   height: 100%;
@@ -309,3 +312,20 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   .sun, .scroll-hint { animation: none; }
 }
+
+/* Page 2 : centrer le texte de l'introduction et laisser transparaître le fond */
+.page[data-page="2"] .paper-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 62vh;
+  background: rgba(224, 211, 175, 0.7);
+}
+.page[data-page="2"] .text-block {
+  text-align: center;
+  max-width: 72ch;
+}
+
+/* Couverture : masquer tout élément décoratif restant et garder une bordure discrète */
+.page--cover .sun { display: none; }
+.page--cover .cover-border { border-color: var(--paper-edge); opacity: 0.9; }
