@@ -392,15 +392,20 @@ button:focus-visible {
 
 /* Page 2 : centrer le texte de l'introduction et laisser transparaître le fond */
 .page[data-page="2"] .paper-frame {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   min-height: 62vh;
   background: rgba(224, 211, 175, 0.7);
 }
 .page[data-page="2"] .text-block {
   text-align: center;
   max-width: 72ch;
+  margin: 0 auto;
+}
+
+/* text top block (used on page 3) */
+.text-top {
+  text-align: center;
+  margin-bottom: 0.6rem;
 }
 
 /* Couverture : masquer tout élément décoratif restant et garder une bordure discrète */
