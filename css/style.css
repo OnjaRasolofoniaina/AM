@@ -157,25 +157,25 @@ body {
 
 .paper-frame {
   position: relative;
-  width: min(88vw, 760px);
-  max-height: 84vh;
+  width: min(94vw, 760px);
+  min-height: 72vh;
   background: rgba(224, 211, 175, 0.72);
   border: 2px solid rgba(92,4,4,0.25);
   padding: clamp(1.2rem, 3.4vw, 2.4rem);
-  overflow-y: auto;
 }
 
 .paper-frame--split {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.6rem;
+  grid-template-columns: 110px 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: "illustration text" "below below";
+  gap: 0.9rem;
+  align-items: start;
 }
 @media (min-width: 720px) {
   .paper-frame--split {
-    grid-template-columns: 0.9fr 1.1fr;
-    grid-template-rows: auto auto;
-    grid-template-areas: "illustration text" "text text";
-    align-items: start;
+    grid-template-columns: 160px 1fr;
+    gap: 1.2rem;
   }
 }
 
@@ -211,20 +211,37 @@ body {
   position: relative;
   border: 3px solid var(--cover-brown);
   background: #d8c9a0;
-  aspect-ratio: 3 / 4;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  align-self: start;
   overflow: hidden;
 }
 .paper-frame--split .illustration { grid-area: illustration; }
-.paper-frame--split .text-block { grid-area: text; }
+.paper-frame--split .text-side { grid-area: text; }
+.paper-frame--split .text-below { grid-area: below; }
 .illustration img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   display: block;
 }
+
+/* Narrow right column (next to the illustration) */
+.text-side {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  line-height: 1.85;
+  text-align: left;
+  padding-left: 0.65rem;
+  align-self: start;
+}
+.text-side p { margin: 0 0 1rem 0; }
+
+.text-below {
+  margin-top: 0.4rem;
+}
+.text-block { overflow: visible; }
 .illustration-fallback {
   display: none;
   text-align: center;
