@@ -42,7 +42,7 @@ body {
 }
 
 .page {
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -50,7 +50,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible; /* allow page content to extend without inner scroll */
 }
 
 /* ---------- Page 1 : couverture ---------- */
@@ -166,7 +166,7 @@ body {
 
 .paper-frame--split {
   display: grid;
-  grid-template-columns: 110px 1fr;
+  grid-template-columns: 140px 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: "illustration text" "below below";
   gap: 0.9rem;
@@ -174,7 +174,7 @@ body {
 }
 @media (min-width: 720px) {
   .paper-frame--split {
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 180px 1fr;
     gap: 1.2rem;
   }
 }
@@ -225,15 +225,16 @@ body {
   height: auto;
   object-fit: cover;
   display: block;
+  max-height: 62vh; /* make image tall like the reference */
 }
 
 /* Narrow right column (next to the illustration) */
 .text-side {
   font-family: var(--font-display);
-  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
-  line-height: 1.85;
-  text-align: left;
-  padding-left: 0.65rem;
+  font-size: clamp(0.98rem, 2.2vw, 1.18rem);
+  line-height: 1.95;
+  text-align: right; /* align text to the right column like the sample */
+  padding-right: 0.6rem;
   align-self: start;
 }
 .text-side p { margin: 0 0 1rem 0; }
