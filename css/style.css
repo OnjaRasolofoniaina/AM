@@ -167,7 +167,8 @@ body {
 .paper-frame--split {
   display: grid;
   grid-template-columns: 140px 1fr;
-  grid-template-rows: auto auto;
+  /* first row stretches so illustration can be vertically centered, second row holds the below text */
+  grid-template-rows: 1fr auto;
   grid-template-areas: "illustration text" "below below";
   gap: 0.9rem;
   align-items: start;
@@ -228,6 +229,24 @@ body {
   max-height: 62vh; /* make image tall like the reference */
 }
 
+/* Center the illustration vertically within the first grid row so it sits mid-left */
+.paper-frame--split .illustration {
+  align-self: center;
+  justify-self: start;
+  /* shift slightly left so the image sits on the middle-left of the paper */
+  margin-left: -10px;
+}
+.paper-frame--split .text-side {
+  align-self: center;
+}
+
+/* Make the paper frame on page 3 fill the viewport so vertical centering works */
+.page[data-page="3"] .paper-frame {
+  min-height: 100vh;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+}
+
 /* Narrow right column (next to the illustration) */
 .text-side {
   font-family: var(--font-display);
@@ -275,6 +294,7 @@ body {
 
   .illustration {
     border-width: 2px;
+    margin-left: -6px;
   }
 
   .illustration img {
@@ -300,6 +320,10 @@ body {
   /* réduire espaces généraux */
   .scroll-hint { bottom: 20px; }
   .page-dots { right: 10px; }
+}
+
+@media (min-width: 720px) {
+  .paper-frame--split .illustration { margin-left: -20px; }
 }
 .text-block { overflow: visible; }
 .illustration-fallback {
