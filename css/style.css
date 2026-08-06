@@ -148,11 +148,61 @@ body {
 .page--paper {
   background-color: var(--beige);
   background-image:
-    url('../images/mik.jpg'),
+    url('../images/decores/mik.png'),
     repeating-linear-gradient(0deg, rgba(92,4,4,0.03) 0 2px, transparent 2px 4px);
   background-size: cover, auto;
   background-position: center, center;
   background-blend-mode: multiply, normal;
+}
+
+.page--paper1 {
+    background-color: var(--beige);
+    background-image:
+      url('../images/decores/mik1.png'),
+      repeating-linear-gradient(0deg, rgba(92,4,4,0.03) 0 2px, transparent 2px 4px);
+    background-size: cover, auto;
+    background-position: center, center;
+    background-blend-mode: multiply, normal;
+}
+
+.page--paper2 {
+    background-color: var(--beige);
+    background-image:
+      url('../images/decores/mik2.png'),
+      repeating-linear-gradient(0deg, rgba(92,4,4,0.03) 0 2px, transparent 2px 4px);
+    background-size: cover, auto;
+    background-position: center, center;
+    background-blend-mode: multiply, normal;
+}
+
+.page--paper3 {
+    background-color: var(--beige);
+    background-image:
+      url('../images/decores/mik3.png'),
+      repeating-linear-gradient(0deg, rgba(92,4,4,0.03) 0 2px, transparent 2px 4px);
+    background-size: cover, auto;
+    background-position: center, center;
+    background-blend-mode: multiply, normal;
+}
+
+.page--paper4 {
+    background-color: var(--beige);
+    background-image:
+      url('../images/decores/mik4.png'),
+      repeating-linear-gradient(0deg, rgba(92,4,4,0.03) 0 2px, transparent 2px 4px);
+    background-size: cover, auto;
+    background-position: center, center;
+    background-blend-mode: multiply, normal;
+}
+
+.page--paper5 {
+    background-color: var(--beige);
+    background-image:
+      url('../images/decores/mik5.png'),
+      repeating-linear-gradient(0deg, rgba(92,4,4,0.03) 0 2px, transparent 2px 4px);
+    background-size: cover, auto;
+    background-position: center, center;
+    background-blend-mode: multiply, normal;
 }
 
 .paper-frame {
@@ -293,12 +343,20 @@ body {
     gap: 0.6rem;
   }
 
-  .illustration {
+  .page[data-page="3"] .paper-frame--split {
+    grid-template-columns: minmax(0, 48vw) minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+
+  .page[data-page="3"] .illustration {
+    width: 100%;
+    max-width: 100%;
     border-width: 2px;
     margin-left: -6px;
   }
 
-  .illustration img {
+  .page[data-page="3"] .illustration img {
+    width: 100%;
     max-height: 58vh; /* tall image like the sample */
   }
 
