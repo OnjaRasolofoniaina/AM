@@ -494,3 +494,13 @@ button:focus-visible {
 /* Couverture : masquer tout élément décoratif restant et garder une bordure discrète */
 .page--cover .sun { display: none; }
 .page--cover .cover-border { border-color: var(--paper-edge); opacity: 0.9; }
+
+figure.illustration {
+  width: 45%; /* 45% du conteneur parent */
+  height: auto;
+}
+
+figure.illustration img {
+  width: 100%;
+  height: auto;
+}
