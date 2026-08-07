@@ -42,7 +42,9 @@ body {
 }
 
 .page {
+  height: 100vh;
   min-height: 100vh;
+  max-height: 100vh;
   width: 100%;
   scroll-snap-align: start;
   scroll-snap-stop: always;
@@ -50,7 +52,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: visible; /* allow page content to extend without inner scroll */
+  overflow: hidden; /* page itself never grows past one screen; overflow scrolls inside .paper-frame */
 }
 
 /* ---------- Page 1 : couverture ---------- */
@@ -223,6 +225,8 @@ body {
   position: relative;
   width: min(94vw, 760px);
   min-height: 72vh;
+  max-height: 92vh;
+  overflow-y: auto;
   /* background: rgba(224, 211, 175, 0.72); */
   border: 2px solid rgba(92,4,4,0.25);
   padding: clamp(1.2rem, 3.4vw, 2.4rem);
@@ -308,6 +312,8 @@ body {
 /* Make the paper frame on page 3 fill the viewport so vertical centering works */
 .page[data-page="3"] .paper-frame {
   min-height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
   padding-top: 2.4rem;
   padding-bottom: 2.4rem;
 }
